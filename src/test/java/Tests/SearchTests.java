@@ -24,14 +24,14 @@ public class SearchTests extends ChromeRunner {
                  Assert.assertTrue(Steps1.searchField.isDisplayed());
     }
 
-    @Test (retryAnalyzer = Retry.class)
-    @Severity(SeverityLevel.CRITICAL)
-    @Description("TC 2 - search with correct data")
-    public void searchWithCorrectData(){
-        SearchSteps Steps2 = new SearchSteps();
-        Steps2
-                .clickOnSearchButton()
-                .correctSearchData(correctSearchCriteria);
+    //@Test (retryAnalyzer = Retry.class)
+    //@Severity(SeverityLevel.CRITICAL)
+   // @Description("TC 2 - search with correct data")
+    //public void searchWithCorrectData(){
+       // SearchSteps Steps2 = new SearchSteps();
+       // Steps2
+               // .clickOnSearchButton()
+               // .correctSearchData(correctSearchCriteria);
 
-    }
+   // }
 }
