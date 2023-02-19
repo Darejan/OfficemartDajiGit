@@ -1,5 +1,7 @@
 package Tests;
 
+import DataObject.SearchData;
+import PageObject.SearchPage;
 import StepObject.SearchSteps;
 import Utils.ChromeRunner;
 import Utils.Retry;
@@ -11,6 +13,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static DataObject.SearchData.*;
+import static com.codeborne.selenide.Selectors.byTagName;
+import static com.codeborne.selenide.Selenide.*;
 
 @Listeners(Utils.TestLister.class)
 public class SearchTests extends ChromeRunner {
@@ -22,16 +26,35 @@ public class SearchTests extends ChromeRunner {
         Steps1
                 .clickOnSearchButton();
                  Assert.assertTrue(Steps1.searchField.isDisplayed());
+                 sleep(1000);
     }
 
-    //@Test (retryAnalyzer = Retry.class)
-    //@Severity(SeverityLevel.CRITICAL)
-   // @Description("TC 2 - search with correct data")
-    //public void searchWithCorrectData(){
-       // SearchSteps Steps2 = new SearchSteps();
-       // Steps2
-               // .clickOnSearchButton()
-               // .correctSearchData(correctSearchCriteria);
+    @Test (retryAnalyzer = Retry.class)
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("TC 2 - search with correct data")
+    public void searchWithCorrectData(){
+        SearchSteps Steps2 = new SearchSteps();
+        Steps2
+                .clickOnSearchButton()
+                .correctSearchData(correctSearchCriteria)
+                .clickOnSearchFieldButton();
+        int searchedItemsNumber = $$(".prod_bottom").size();
+        for (int i = 0; i < searchedItemsNumber; i++){
+            String getText = $(".prod_title", i).$(byTagName("h4")).getText();
+            Assert.assertTrue(getText.contains(correctSearchCriteria));
+        }
 
-   // }
+   }
+
+    @Test (retryAnalyzer = Retry.class)
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("TC 2 - search with correct data")
+    public void searchWithIncorrectData() {
+        SearchSteps Steps3 = new SearchSteps();
+        Steps3
+                .clickOnSearchButton()
+                .incorrectSearchData(incorrectSearchCriteria)
+                .clickOnSearchFieldButton();
+                Assert.assertEquals(Steps3.textFromIncorrectSearch().searchResult, incorrectDataMessage);
+    }
 }

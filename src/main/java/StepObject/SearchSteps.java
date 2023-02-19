@@ -19,13 +19,19 @@ public class SearchSteps extends SearchPage {
 
     @Step ("click on the search button inside of the search field")
     public SearchSteps clickOnSearchFieldButton(){
-        searchFieldButton.click();
+        searchField.pressEnter();
         return this;
     }
 
     @Step ("fill incorrect searching data")
     public SearchSteps incorrectSearchData(String incorrectData){
         searchField.setValue(incorrectData);
+        return this;
+    }
+
+    @Step ("get text from incorrect search result")
+    public SearchSteps textFromIncorrectSearch(){
+        searchResult.getText();
         return this;
     }
 
