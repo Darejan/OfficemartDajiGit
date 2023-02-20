@@ -1,7 +1,9 @@
 package StepObject;
 
 
+import DataObject.SearchData;
 import PageObject.SearchPage;
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 
 public class SearchSteps extends SearchPage {

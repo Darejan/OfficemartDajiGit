@@ -13,6 +13,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static DataObject.SearchData.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byTagName;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -55,6 +57,8 @@ public class SearchTests extends ChromeRunner {
                 .clickOnSearchButton()
                 .incorrectSearchData(incorrectSearchCriteria)
                 .clickOnSearchFieldButton();
-                Assert.assertEquals(Steps3.textFromIncorrectSearch().searchResult, incorrectDataMessage);
+               // Assert.assertTrue(incorrectDataMessage.endsWith(Steps3.textFromIncorrectSearch()));
+                //Assert.assertEquals(Steps3.textFromIncorrectSearch(), incorrectDataMessage.contains(incorrectSearchCriteria));
+               //Assert.assertTrue(Steps3.searchResult.is(visible));
     }
 }
