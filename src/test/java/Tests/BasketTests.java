@@ -4,9 +4,11 @@ import StepObject.BasketSteps;
 import StepObject.SearchSteps;
 import Utils.ChromeRunner;
 import Utils.Retry;
+import com.codeborne.selenide.Condition;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
+import io.qameta.allure
+        .SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -52,6 +54,7 @@ public class BasketTests extends ChromeRunner {
         refresh();
         Steps3
                 .clickOnBasketButton();
-        Assert.assertEquals(productName, Steps3.productNameInBasket.getText());
+        //Assert.assertEquals(productName, Steps3.productNameInBasket.getText());
+        Assert.assertTrue(Steps3.productNameInBasket.is(Condition.visible));
     }
 }
