@@ -4,7 +4,6 @@
 
 <suite name="Automation Suite" thread-count="1" parallel="tests">
 
-
     <test name="TestSuit1" parallel="tests">
         <classes>
             <class name="Tests.SearchTests"/>

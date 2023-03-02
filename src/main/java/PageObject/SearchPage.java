@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage {
     public SelenideElement
-           searchButton = $(byText("პროდუქტის ძიება")),
+           searchButton = $(".fa-search"),
            searchField = $(".form_group").$(byName("search")),
            searchFieldButton = $(".fas fa-search",2),
            //getTextFromReturnedData = $(".prod_title"),

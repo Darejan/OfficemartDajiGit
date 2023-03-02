@@ -12,11 +12,9 @@ import io.qameta.allure
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
 import static DataObject.BasketData.*;
 import static DataObject.SearchData.*;
 import static com.codeborne.selenide.Selenide.refresh;
-import static com.codeborne.selenide.Selenide.sleep;
 
 @Listeners(Utils.TestLister.class)
 public class BasketTests extends ChromeRunner {
